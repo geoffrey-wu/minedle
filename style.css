@@ -1,18 +1,47 @@
+* {
+    font-family: Helvetica, sans-serif;
+    font-size: 0px;
+}
+
+p, p span {
+    font-size: 30px;
+    text-align: center;
+}
+
+button {
+    width: 96px;
+    height: 60px;
+    font-size: 20px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    margin: 2px;
+}
+
+button:hover {
+    background-color: #dddddd;
+}
+
+#buttons {
+    width: 312px;
+    height: 66px;
+    margin: auto;
+}
+
 .cell {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     background-color: #dddddd;
     border: 1px solid #000000;
     display: inline-block;
     margin: 2px;
-}
-
-.row {
-    display: flex;
+    font-size: 20px;
+    vertical-align: middle;
+    line-height: 40px;
+    text-align: center;
 }
 
 #board {
-    width: 340px;
-    padding-top: 10%;
+    width: 504px;
+    /* padding-top: 40px; */
     margin: auto;
 }
