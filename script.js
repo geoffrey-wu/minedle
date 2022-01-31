@@ -56,6 +56,11 @@ function revealSquares(row, col) {
     if (row < size - 1) if (board[row + 1][col] === 1) numAdjacentBombs++;
     if (col < size - 1) if (board[row][col + 1] === 1) numAdjacentBombs++;
 
+    if (row > 0 && col > 0) if (board[row - 1][col - 1] === 1) numAdjacentBombs++;
+    if (row < size - 1 && col > 0) if (board[row + 1][col - 1] === 1) numAdjacentBombs++;
+    if (row > 0 && col < size - 1) if (board[row - 1][col + 1] === 1) numAdjacentBombs++;
+    if (row < size - 1 && col < size - 1) if (board[row + 1][col + 1] === 1) numAdjacentBombs++;
+
     if (numAdjacentBombs > 0) {
         document.getElementById(`${row}-${col}`).innerHTML = numAdjacentBombs;
         return;
@@ -78,6 +83,26 @@ function revealSquares(row, col) {
         if (col < size - 1) {
             if (!document.getElementById(`${row}-${col + 1}`).revealed) {
                 revealSquares(row, col + 1);
+            }
+        }
+        if (row > 0 && col > 0) {
+            if (!document.getElementById(`${row - 1}-${col - 1}`).revealed) {
+                revealSquares(row - 1, col - 1);
+            }
+        }
+        if (row < size - 1 && col > 0) {
+            if (!document.getElementById(`${row + 1}-${col - 1}`).revealed) {
+                revealSquares(row + 1, col - 1);
+            }
+        }
+        if (row > 0 && col < size - 1) {
+            if (!document.getElementById(`${row - 1}-${col + 1}`).revealed) {
+                revealSquares(row - 1, col + 1);
+            }
+        }
+        if (row < size - 1 && col < size - 1) {
+            if (!document.getElementById(`${row + 1}-${col + 1}`).revealed) {
+                revealSquares(row + 1, col + 1);
             }
         }
     }
