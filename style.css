@@ -1,0 +1,18 @@
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: #dddddd;
+    border: 1px solid #000000;
+    display: inline-block;
+    margin: 2px;
+}
+
+.row {
+    display: flex;
+}
+
+#board {
+    width: 340px;
+    padding-top: 10%;
+    margin: auto;
+}
