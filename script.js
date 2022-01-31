@@ -22,12 +22,6 @@ var cells = document.getElementsByClassName('cell');
 
 window.onload = () => {
     generateBoard();
-
-    document.getElementById('numSelected').innerHTML = numSelected;
-    document.getElementById('totalGuesses').innerHTML = totalGuesses;
-
-    document.getElementById('revealedBombs').innerHTML = revealedBombs;
-    document.getElementById('bombs').innerHTML = bombs;
 }
 
 function generateBoard() {
@@ -144,6 +138,9 @@ function clearGuess() {
         e.style.backgroundColor = '#dddddd';
         e.clicked = false;
     }
+
+    numSelected = 0;
+    document.getElementById('numSelected').innerHTML = 0;
 }
 
 function reset() {
