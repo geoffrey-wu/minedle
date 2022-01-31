@@ -147,7 +147,7 @@ function boardClick(e, row, col) {
         boardGuesses[row][col] = 0;
         numSelected--;
     } else {
-        if (numSelected >= totalGuesses) return;
+        if (numSelected >= totalGuesses - revealedBombs) return;
 
         e.style.backgroundColor = '#00ff00';
         boardGuesses[row][col] = 1;
@@ -202,7 +202,14 @@ function clearGuess() {
 function reset() {
     board = Array(size).fill(0).map(x => Array(size).fill(0));
     boardGuesses = Array(size).fill(0).map(x => Array(size).fill(0));
+    numSelected = 0;
     revealedBombs = 0;
+    turnNumber = 0;
+    document.getElementById('numSelected').innerHTML = 0;
+    document.getElementById('totalGuesses').innerHTML = totalGuesses;
+    document.getElementById('revealedBombs').innerHTML = 0;
+    document.getElementById('turnNumber').innerHTML = '0 guesses';
+
     generateMines();
 
     var allCells = document.getElementsByClassName('cell');
