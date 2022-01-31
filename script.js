@@ -22,9 +22,40 @@ var cells = document.getElementsByClassName('cell');
 
 window.onload = () => {
     generateBoard();
+    generateMines();
 }
 
 function generateBoard() {
+    for (let i = 0; i < size; i++) {
+        let row = document.createElement('div');
+        row.className = 'row';
+
+        for (let j = 0; j < size; j++) {
+            let cell = document.createElement('div');
+            cell.className = 'cell';
+            cell.id = `${i}-${j}`;
+            cell.style.width = `${450/size}px`;
+            cell.style.height = `${450/size}px`;
+            cell.style.lineHeight = `${450/size}px`;
+            cell.style.fontSize = `${0.4 * 450/size}px`;
+
+            cell.clicked = false;
+            cell.revealed = false;
+
+            cell.onclick = () => {
+                boardClick(cell, i, j);
+            }
+            cell.oncontextmenu = (e) => {
+                e.preventDefault();
+            }
+            row.appendChild(cell);
+        }
+
+        document.getElementById('board').appendChild(row);
+    }
+}
+
+function generateMines() {
     var count = 0;
     while (count < bombs) {
         var row = Math.floor(Math.random() * size);
@@ -116,7 +147,7 @@ function boardClick(e, row, col) {
         boardGuesses[row][col] = 0;
         numSelected--;
     } else {
-        if (numSelected >= 10) return;
+        if (numSelected >= totalGuesses) return;
 
         e.style.backgroundColor = '#00ff00';
         boardGuesses[row][col] = 1;
@@ -172,7 +203,7 @@ function reset() {
     board = Array(size).fill(0).map(x => Array(size).fill(0));
     boardGuesses = Array(size).fill(0).map(x => Array(size).fill(0));
     revealedBombs = 0;
-    generateBoard();
+    generateMines();
 
     var allCells = document.getElementsByClassName('cell');
     for (let e of allCells) {
