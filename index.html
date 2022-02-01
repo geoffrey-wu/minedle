@@ -8,20 +8,37 @@
 </head>
 
 <body>
+    <div id="modal">
+        <div id="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Wordle-Themed Minesweeper: Minesweeperle.</p>
+            <p>Guess the minesweeper puzzle in as few tries as possible.</p>
+            <p>
+                Each try you have to guess all the locations of the mines.
+                If you dont get it spot on, then they take the locations you guess and act as if they're clicking them in the actual minesweeper puzzle.
+            </p>
+            <p>
+                So if you hit a mine, it tells you that's the correct location of a mine.
+                If not, it does a regular minesweeper click and reveals that information.
+            </p>
+            <p>Press the [ctrl] key and move your mouse around to select multiple squares.</p>
+        </div>
+    </div>
+
     <div id="buttons">
+        <button onclick="openModal()">How to play</button>
         <button onclick="guess()">Submit guess</button>
         <button onclick="clearGuess()">Clear guess</button>
         <button onclick="reset()">Play again</button>
         <button onclick="changeSize()">Change size</button>
     </div>
 
-    <p>Press the [ctrl] key and move your mouse around to select multiple squares.</p>
     <p>You have selected <span id="numSelected">0</span> out of a possible <span id="totalGuesses">10</span> squares.</p>
     <p>You have revealed <span id="revealedBombs">0</span> out of <span id="bombs">10</span> bombs.</p>
-    <p>You have submitted <span id="turnNumber">0 guesses</span> using <span id="squaresUsed">0</span> squares.</p>
+    <p>You have submitted <span id="turnNumber">0 guesses</span> using <span id="squaresUsed">0 squares</span>.</p>
 
     <div id="board"></div>
-    
+
     <script src="script.js"></script>
 </body>
 

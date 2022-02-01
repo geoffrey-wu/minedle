@@ -51,10 +51,10 @@ function generateBoard() {
             let cell = document.createElement('div');
             cell.className = 'cell';
             cell.id = `${i}-${j}`;
-            cell.style.width = `${boardPixelWidth/size}px`;
-            cell.style.height = `${boardPixelWidth/size}px`;
-            cell.style.lineHeight = `${boardPixelWidth/size}px`;
-            cell.style.fontSize = `${0.4 * boardPixelWidth/size}px`;
+            cell.style.width = `${boardPixelWidth / size}px`;
+            cell.style.height = `${boardPixelWidth / size}px`;
+            cell.style.lineHeight = `${boardPixelWidth / size}px`;
+            cell.style.fontSize = `${0.4 * boardPixelWidth / size}px`;
 
             cell.clicked = false;
             cell.revealed = false;
@@ -201,7 +201,7 @@ function boardClick(e, row, col, forceClick) {
 
 function guess() {
     squaresUsed += numSelected;
-    document.getElementById('squaresUsed').innerHTML = squaresUsed;
+    document.getElementById('squaresUsed').innerHTML = squaresUsed + ' square' + (squaresUsed == 1 ? '' : 's');
 
     for (var i = 0; i < size; i++) {
         for (var j = 0; j < size; j++) {
@@ -241,17 +241,17 @@ function clearGuess() {
 function reset() {
     hasBomb = Array(size).fill(false).map(x => Array(size).fill(false));
     boardSelection = Array(size).fill(false).map(x => Array(size).fill(false));
-    
+
     numSelected = 0;
     revealedBombs = 0;
-    squaresUsed = 0;
     turnNumber = 0;
+    squaresUsed = 0;
 
     document.getElementById('numSelected').innerHTML = 0;
     document.getElementById('totalGuesses').innerHTML = totalGuesses;
     document.getElementById('revealedBombs').innerHTML = 0;
     document.getElementById('turnNumber').innerHTML = '0 guesses';
-    document.getElementById('squaresUsed').innerHTML = 0;
+    document.getElementById('squaresUsed').innerHTML = '0 squares';
 
     document.getElementById('bombs').innerHTML = numBombs;
 
@@ -263,5 +263,22 @@ function reset() {
         e.style.backgroundColor = '#dddddd';
         e.clicked = false;
         e.innerHTML = '';
+    }
+}
+
+
+var modal = document.getElementById("modal");
+
+function openModal() {
+    modal.style.display = "block";
+}
+
+function closeModal() {
+    modal.style.display = "none";
+}
+
+window.onclick = (event) => {
+    if (event.target == modal) {
+        closeModal();
     }
 }
