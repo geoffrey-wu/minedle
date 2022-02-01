@@ -4,7 +4,7 @@
 }
 
 p, p span {
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
 }
 
@@ -22,7 +22,7 @@ button:hover {
 }
 
 #buttons {
-    width: 312px;
+    width: 400px;
     height: 66px;
     margin: auto;
 }
@@ -38,7 +38,6 @@ button:hover {
 }
 
 #board {
-    width: 450px;
-    /* padding-top: 40px; */
+    width: 500px;
     margin: auto;
 }

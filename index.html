@@ -12,11 +12,14 @@
         <button onclick="guess()">Submit guess</button>
         <button onclick="clearGuess()">Clear guess</button>
         <button onclick="reset()">Play again</button>
+        <button onclick="changeSize()">Change size</button>
     </div>
 
-    <p>You have selected <span id="numSelected">0</span> out of <span id="totalGuesses">10</span> squares.</p>
+    <p>Press the [ctrl] key and move your mouse around to select multiple squares.</p>
+    <p>You have selected <span id="numSelected">0</span> out of a possible <span id="totalGuesses">10</span> squares.</p>
     <p>You have revealed <span id="revealedBombs">0</span> out of <span id="bombs">10</span> bombs.</p>
-    <p>You have submitted <span id="turnNumber">0 guesses</span> so far.</p>
+    <p>You have submitted <span id="turnNumber">0 guesses</span> using <span id="squaresUsed">0</span> squares.</p>
+
     <div id="board"></div>
     
     <script src="script.js"></script>
