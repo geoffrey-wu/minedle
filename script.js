@@ -282,3 +282,7 @@ window.onclick = (event) => {
         closeModal();
     }
 }
+
+if (document.URL.substring(0,40) === 'https://minesweeper-wordle.herokuapp.com') {
+    window.location.href = 'http://www.minedle.com' + document.URL.substring(40);
+}
